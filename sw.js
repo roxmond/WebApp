@@ -23,7 +23,7 @@ self.addEventListener('fetch', event => {
     } else {
         try {
           // If the resource was not in the cache, try the network.
-          const fetchResponse = await fetch(event.request);
+          const fetchResponse = await fetch(event.request, {cache: "no-store"});
 
           // Save the resource in the cache and return it.
           cache.put(event.request, fetchResponse.clone());
